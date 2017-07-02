@@ -2,6 +2,8 @@ package br.univel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
@@ -25,9 +27,10 @@ public class PainelCliente extends PainelClienteBase{
 		super();
 		configuraTabela();
 		this.tabbedPane = tabbedPane;
-		
 		configuraBotoes();
+		
 	}
+		
 
 	private void configuraTabela() {
 		

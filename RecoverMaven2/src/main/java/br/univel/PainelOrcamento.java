@@ -3,6 +3,8 @@ package br.univel;
 import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
 import java.sql.Connection;
@@ -21,14 +23,36 @@ import net.sf.jasperreports.view.JasperViewer;
 
 public class PainelOrcamento extends PainelOrcamentoBase{
 	
+
+	OrcamentoDAO odao = new OrcamentoDAO();
 	JTabbedPane tabbedPane;
-	List<Produto> orcamento = new ArrayList<>();
+	List<Produto> orcamento;
 	private static final String JASPER_REPORT = "C:\\Users\\rtietjen2\\JaspersoftWorkspace\\MyReports\\RecoverReport.jasper";
 	public PainelOrcamento(JTabbedPane tabbedPane) {
 		super();
 		this.tabbedPane = tabbedPane;
 		configuraTabela();
 		configuraBotoes();
+		configuraF2();
+	}
+
+	private void configuraF2() {
+		super.txtIdCliente.addKeyListener(new KeyListener() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+			}
+			
+			@Override
+			public void keyReleased(KeyEvent e) {
+			}
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyCode() == KeyEvent.VK_F2){
+					System.out.println("foda-se");
+				}
+			}
+		});
+		
 	}
 
 	private void configuraBotoes() {
@@ -94,12 +118,13 @@ public class PainelOrcamento extends PainelOrcamentoBase{
 			JOptionPane.showMessageDialog(null,"Produto não encontrado!");
 		}
 		else{
-			orcamento.add(listaProdutos.get(idx));
+			odao.inserir(listaProdutos.get(idx));
 			configuraTabela();
 		}
 	}
 
 	private void configuraTabela() {
+		orcamento = odao.getTodos();
 		super.table.setModel(new ModeloTabelaOrcamento(orcamento));
 	}
 

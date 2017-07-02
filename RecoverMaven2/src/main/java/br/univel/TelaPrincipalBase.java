@@ -56,7 +56,7 @@ public class TelaPrincipalBase extends JFrame {
 		gbl_contentPane.rowWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
 		
-		btnOrcamento = new JButton("Ocamento");
+		btnOrcamento = new JButton("Orcamento");
 		GridBagConstraints gbc_btnOrcamento = new GridBagConstraints();
 		gbc_btnOrcamento.anchor = GridBagConstraints.EAST;
 		gbc_btnOrcamento.insets = new Insets(0, 0, 5, 5);

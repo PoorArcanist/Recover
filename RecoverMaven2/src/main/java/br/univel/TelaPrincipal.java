@@ -10,14 +10,18 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import org.postgresql.Driver;
 
 public class TelaPrincipal extends TelaPrincipalBase{
 	
 	private final String SQL_CRIACAO_TABELAS = "CREATE TABLE cliente(id_cliente INTEGER,nome_cliente VARCHAR(255),telefone VARCHAR(25));"
-			+ "CREATE TABLE produto(id_produto INTEGER,nome_produto VARCHAR(255),valor numeric(17,2));";
+			+ "CREATE TABLE produto(id_produto INTEGER,nome_produto VARCHAR(255),valor numeric(17,2));"
+			+ "CREATE TABLE orcamento(id integer,nome varchar(255),valor numeric(17,2));";
 	JTabbedPane tabbedPane = super.tabbedPane;
 	List<Produto> listaMaster10;
 	
@@ -25,6 +29,14 @@ public class TelaPrincipal extends TelaPrincipalBase{
 		super.setVisible(true);
 		configuraMenu();
 		configuraBotoes();
+	    ChangeListener changeListener = new ChangeListener() {
+	        public void stateChanged(ChangeEvent changeEvent) {
+	          JTabbedPane sourceTabbedPane = (JTabbedPane) changeEvent.getSource();
+	          int index = sourceTabbedPane.getSelectedIndex();
+	          System.out.println("Tab changed to: " + sourceTabbedPane.getTitleAt(index));
+	        }
+	      };
+	      tabbedPane.addChangeListener(changeListener);
 
 		
 	}
@@ -98,6 +110,7 @@ public class TelaPrincipal extends TelaPrincipalBase{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				tabbedPane.addTab("Orcamento",new PainelOrcamento(tabbedPane));
+				
 			}
 		});
 		
