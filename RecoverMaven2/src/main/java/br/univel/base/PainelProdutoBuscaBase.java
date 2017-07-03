@@ -1,15 +1,15 @@
-package br.univel;
+package br.univel.base;
+
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 
 import javax.swing.JPanel;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-public class PainelClienteBuscaBase extends JPanel {
-	protected JTable table;
-
-	public PainelClienteBuscaBase() {
+public class PainelProdutoBuscaBase extends JPanel {
+	public JTable table;
+	public PainelProdutoBuscaBase() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0};

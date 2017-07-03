@@ -1,4 +1,4 @@
-package br.univel;
+package br.univel.base;
 
 import javax.swing.JPanel;
 import java.awt.GridBagLayout;
@@ -14,7 +14,7 @@ public class PainelOrcamentoBase extends JPanel {
 	protected JTextField txtIdCliente;
 	protected final String nomeCliente = "";
 	protected JTable table;
-	protected JTextField txtIdProduto;
+	public JTextField txtIdProduto;
 	protected JLabel lblIdCliente;
 	protected JLabel lblCliente;
 	protected JLabel lblNomeCliente;

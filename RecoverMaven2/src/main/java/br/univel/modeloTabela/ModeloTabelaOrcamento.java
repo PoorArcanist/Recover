@@ -1,10 +1,12 @@
-package br.univel;
+package br.univel.modeloTabela;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
+
+import br.univel.Produto;
 
 public class ModeloTabelaOrcamento extends AbstractTableModel{
 	List<Produto> lista = new ArrayList<>();

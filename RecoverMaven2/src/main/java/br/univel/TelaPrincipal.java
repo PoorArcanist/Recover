@@ -23,6 +23,15 @@ import javax.swing.event.ChangeListener;
 
 import org.postgresql.Driver;
 
+import br.univel.base.TelaPrincipalBase;
+import br.univel.conexaoDB.ConexaoDB;
+import br.univel.dao.ProdutoDAO;
+import br.univel.painel.PainelCliente;
+import br.univel.painel.PainelClienteBusca;
+import br.univel.painel.PainelOrcamento;
+import br.univel.painel.PainelProduto;
+import br.univel.painel.PainelProdutoBusca;
+
 public class TelaPrincipal extends TelaPrincipalBase{
 	
 	private final String SQL_CRIACAO_TABELAS = "CREATE TABLE cliente(id_cliente INTEGER,nome_cliente VARCHAR(255),telefone VARCHAR(25));"

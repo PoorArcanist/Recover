@@ -1,19 +1,20 @@
-package br.univel;
+package br.univel.base;
 
-import javax.swing.JPanel;
-import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
-import javax.swing.JLabel;
+import java.awt.GridBagLayout;
 import java.awt.Insets;
-import javax.swing.JTextField;
+
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 
-public class PainelClienteBase extends JPanel {
+public class PainelProdutoBase extends JPanel {
 	protected JTextField txtId;
 	protected JTextField txtNome;
-	protected JTextField txtTelefone;
+	protected JTextField txtValor;
 	protected JTable table;
 	protected JLabel lblNewLabel;
 	protected JLabel lblNewLabel_1;
@@ -23,11 +24,8 @@ public class PainelClienteBase extends JPanel {
 	protected JButton btnExcluir;
 	protected JScrollPane scrollPane;
 	protected JButton btnX;
-
-	/**
-	 * Create the panel.
-	 */
-	public PainelClienteBase() {
+	
+	public PainelProdutoBase() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0};
@@ -75,15 +73,15 @@ public class PainelClienteBase extends JPanel {
 		panel.add(lblNewLabel_1, gbc_lblNewLabel_1);
 		
 		txtNome = new JTextField();
-		GridBagConstraints gbc_textField_1 = new GridBagConstraints();
-		gbc_textField_1.anchor = GridBagConstraints.WEST;
-		gbc_textField_1.insets = new Insets(0, 0, 5, 0);
-		gbc_textField_1.gridx = 1;
-		gbc_textField_1.gridy = 1;
-		panel.add(txtNome, gbc_textField_1);
-		txtNome.setColumns(15);
+		GridBagConstraints gbc_txtDescricao = new GridBagConstraints();
+		gbc_txtDescricao.anchor = GridBagConstraints.WEST;
+		gbc_txtDescricao.insets = new Insets(0, 0, 5, 0);
+		gbc_txtDescricao.gridx = 1;
+		gbc_txtDescricao.gridy = 1;
+		panel.add(txtNome, gbc_txtDescricao);
+		txtNome.setColumns(35);
 		
-		lblNewLabel_2 = new JLabel("Telefone");
+		lblNewLabel_2 = new JLabel("Valor(U$)");
 		GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
 		gbc_lblNewLabel_2.anchor = GridBagConstraints.EAST;
 		gbc_lblNewLabel_2.insets = new Insets(0, 0, 0, 5);
@@ -91,13 +89,13 @@ public class PainelClienteBase extends JPanel {
 		gbc_lblNewLabel_2.gridy = 2;
 		panel.add(lblNewLabel_2, gbc_lblNewLabel_2);
 		
-		txtTelefone = new JTextField();
+		txtValor = new JTextField();
 		GridBagConstraints gbc_textField_2 = new GridBagConstraints();
 		gbc_textField_2.anchor = GridBagConstraints.WEST;
 		gbc_textField_2.gridx = 1;
 		gbc_textField_2.gridy = 2;
-		panel.add(txtTelefone, gbc_textField_2);
-		txtTelefone.setColumns(15);
+		panel.add(txtValor, gbc_textField_2);
+		txtValor.setColumns(8);
 		
 		btnX = new JButton("X");
 		GridBagConstraints gbc_btnX = new GridBagConstraints();
@@ -166,6 +164,6 @@ public class PainelClienteBase extends JPanel {
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
-
 	}
+
 }

@@ -1,4 +1,4 @@
-package br.univel;
+package br.univel.painel;
 
 import java.awt.Desktop;
 import java.awt.event.ActionEvent;
@@ -15,6 +15,12 @@ import java.util.Locale;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
+import br.univel.Produto;
+import br.univel.base.PainelOrcamentoBase;
+import br.univel.conexaoDB.ConexaoDB;
+import br.univel.dao.OrcamentoDAO;
+import br.univel.dao.ProdutoDAO;
+import br.univel.modeloTabela.ModeloTabelaOrcamento;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -85,7 +91,7 @@ public class PainelOrcamento extends PainelOrcamentoBase{
 		tabbedPane.remove(this);
 	}
 
-	protected void adicionarProduto() {
+	public void adicionarProduto() {
 		if(super.txtIdProduto.getText().equals("")){
 			JOptionPane.showMessageDialog(null,"Por favor, informe um ID ou selecione um produto utilizando o F2");
 		}

@@ -1,8 +1,13 @@
-package br.univel;
+package br.univel.painel;
 
 import java.awt.event.KeyListener;
 import java.awt.event.MouseAdapter;
 import java.util.List;
+
+import br.univel.Produto;
+import br.univel.base.PainelProdutoBuscaBase;
+import br.univel.dao.ProdutoDAO;
+import br.univel.modeloTabela.ModeloTabelaProduto;
 
 public class PainelProdutoBusca extends PainelProdutoBuscaBase{
 	
