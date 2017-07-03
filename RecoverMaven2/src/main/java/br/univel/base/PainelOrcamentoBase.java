@@ -24,20 +24,22 @@ public class PainelOrcamentoBase extends JPanel {
 	protected JLabel lblTotal;
 	protected JButton btnImprimir;
 	protected JButton btnX;
+	protected JButton btnLimparOrcamento;
 
 	/**
 	 * Create the panel.
 	 */
 	public PainelOrcamentoBase() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[]{0, 0, 0};
+		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{1.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.columnWeights = new double[]{1.0, 0.0, 0.0, Double.MIN_VALUE};
 		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
 		JPanel panel = new JPanel();
 		GridBagConstraints gbc_panel = new GridBagConstraints();
+		gbc_panel.gridwidth = 2;
 		gbc_panel.anchor = GridBagConstraints.WEST;
 		gbc_panel.insets = new Insets(0, 0, 5, 5);
 		gbc_panel.fill = GridBagConstraints.VERTICAL;
@@ -61,14 +63,14 @@ public class PainelOrcamentoBase extends JPanel {
 		btnX = new JButton("X");
 		GridBagConstraints gbc_btnX = new GridBagConstraints();
 		gbc_btnX.insets = new Insets(0, 0, 5, 0);
-		gbc_btnX.gridx = 1;
+		gbc_btnX.gridx = 2;
 		gbc_btnX.gridy = 0;
 		add(btnX, gbc_btnX);
 		
 		JPanel panel_1 = new JPanel();
 		GridBagConstraints gbc_panel_1 = new GridBagConstraints();
-		gbc_panel_1.gridwidth = 2;
-		gbc_panel_1.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_1.gridwidth = 3;
+		gbc_panel_1.insets = new Insets(0, 0, 5, 0);
 		gbc_panel_1.fill = GridBagConstraints.BOTH;
 		gbc_panel_1.gridx = 0;
 		gbc_panel_1.gridy = 1;
@@ -80,7 +82,7 @@ public class PainelOrcamentoBase extends JPanel {
 		gbl_panel_1.rowWeights = new double[]{0.0, Double.MIN_VALUE};
 		panel_1.setLayout(gbl_panel_1);
 		
-		lblIdCliente = new JLabel("ID Cliente");
+		lblIdCliente = new JLabel("Cliente(F2)");
 		GridBagConstraints gbc_lblIdCliente = new GridBagConstraints();
 		gbc_lblIdCliente.insets = new Insets(0, 0, 0, 5);
 		gbc_lblIdCliente.anchor = GridBagConstraints.EAST;
@@ -114,20 +116,20 @@ public class PainelOrcamentoBase extends JPanel {
 		
 		JPanel panel_3 = new JPanel();
 		GridBagConstraints gbc_panel_3 = new GridBagConstraints();
-		gbc_panel_3.gridwidth = 2;
-		gbc_panel_3.insets = new Insets(0, 0, 5, 5);
+		gbc_panel_3.gridwidth = 3;
+		gbc_panel_3.insets = new Insets(0, 0, 5, 0);
 		gbc_panel_3.fill = GridBagConstraints.BOTH;
 		gbc_panel_3.gridx = 0;
 		gbc_panel_3.gridy = 3;
 		add(panel_3, gbc_panel_3);
 		GridBagLayout gbl_panel_3 = new GridBagLayout();
-		gbl_panel_3.columnWidths = new int[]{0, 0, 0, 0};
+		gbl_panel_3.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
 		gbl_panel_3.rowHeights = new int[]{0, 0};
-		gbl_panel_3.columnWeights = new double[]{0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel_3.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		gbl_panel_3.rowWeights = new double[]{0.0, Double.MIN_VALUE};
 		panel_3.setLayout(gbl_panel_3);
 		
-		lblIdProduto = new JLabel("ID Produto");
+		lblIdProduto = new JLabel("ID Produto(F2)");
 		GridBagConstraints gbc_lblIdProduto = new GridBagConstraints();
 		gbc_lblIdProduto.insets = new Insets(0, 0, 0, 5);
 		gbc_lblIdProduto.anchor = GridBagConstraints.EAST;
@@ -146,9 +148,17 @@ public class PainelOrcamentoBase extends JPanel {
 		
 		btnAdicionarProduto = new JButton("Adicionar Produto");
 		GridBagConstraints gbc_btnAdicionarProduto = new GridBagConstraints();
+		gbc_btnAdicionarProduto.insets = new Insets(0, 0, 0, 5);
 		gbc_btnAdicionarProduto.gridx = 2;
 		gbc_btnAdicionarProduto.gridy = 0;
 		panel_3.add(btnAdicionarProduto, gbc_btnAdicionarProduto);
+		
+		btnLimparOrcamento = new JButton("Limpar Orcamento");
+		GridBagConstraints gbc_btnLimparOrcamento = new GridBagConstraints();
+		gbc_btnLimparOrcamento.anchor = GridBagConstraints.EAST;
+		gbc_btnLimparOrcamento.gridx = 5;
+		gbc_btnLimparOrcamento.gridy = 0;
+		panel_3.add(btnLimparOrcamento, gbc_btnLimparOrcamento);
 		
 		JLabel lblProdutos = new JLabel("Produtos");
 		GridBagConstraints gbc_lblProdutos = new GridBagConstraints();
@@ -160,7 +170,7 @@ public class PainelOrcamentoBase extends JPanel {
 		
 		JPanel panel_2 = new JPanel();
 		GridBagConstraints gbc_panel_2 = new GridBagConstraints();
-		gbc_panel_2.gridwidth = 2;
+		gbc_panel_2.gridwidth = 3;
 		gbc_panel_2.insets = new Insets(0, 0, 0, 5);
 		gbc_panel_2.fill = GridBagConstraints.BOTH;
 		gbc_panel_2.gridx = 0;

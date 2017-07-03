@@ -65,6 +65,14 @@ public class PainelOrcamento extends PainelOrcamentoBase{
 				imprimir();
 			}
 		});
+		super.btnLimparOrcamento.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				OrcamentoDAO odao = new OrcamentoDAO();
+				odao.excluirTodos();
+				configuraTabela();
+			}
+		});
 	}
 
 	public void imprimir() {

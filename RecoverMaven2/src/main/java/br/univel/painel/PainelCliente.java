@@ -216,6 +216,7 @@ public class PainelCliente extends PainelClienteBase{
 	}
 
 	private void limparCampos() {
+		super.btnExcluir.setEnabled(false);
 		selecionado = -1;
 		super.txtId.setText("");
 		super.txtNome.setText("");

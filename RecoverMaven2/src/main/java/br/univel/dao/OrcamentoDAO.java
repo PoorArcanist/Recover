@@ -52,5 +52,14 @@ public class OrcamentoDAO {
 		} catch (SQLException e) {
 		}
 	}
+	public void excluirTodos() {
+		String sql_excluir = "DELETE FROM orcamento";
+		try {
+			PreparedStatement ps = con.prepareStatement(sql_excluir);
+			ps.executeQuery();
+		} catch (SQLException e) {
+		}
+		
+	}
 
 }
