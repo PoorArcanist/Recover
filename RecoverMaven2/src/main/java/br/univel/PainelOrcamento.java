@@ -86,25 +86,31 @@ public class PainelOrcamento extends PainelOrcamentoBase{
 	}
 
 	protected void adicionarProduto() {
-		int id = Integer.parseInt(super.txtIdProduto.getText());
-		int idx = -1;
-		
-		ProdutoDAO pdao = new ProdutoDAO();
-		
-		List<Produto> listaProdutos = pdao.getTodos();
-		for(int i =0;i<listaProdutos.size();i++){
-			if(listaProdutos.get(i).getId()==id){
-				idx = i;
-				System.out.println("Achou!");
-				break;
-			}
-		}
-		if(idx == -1){
-			JOptionPane.showMessageDialog(null,"Produto não encontrado!");
+		if(super.txtIdProduto.getText().equals("")){
+			JOptionPane.showMessageDialog(null,"Por favor, informe um ID ou selecione um produto utilizando o F2");
 		}
 		else{
-			odao.inserir(listaProdutos.get(idx));
-			configuraTabela();
+			int id = Integer.parseInt(super.txtIdProduto.getText());
+			int idx = -1;
+			
+			ProdutoDAO pdao = new ProdutoDAO();
+			
+			List<Produto> listaProdutos = pdao.getTodos();
+			for(int i =0;i<listaProdutos.size();i++){
+				if(listaProdutos.get(i).getId()==id){
+					idx = i;
+					System.out.println("Achou!");
+					break;
+				}
+			}
+			if(idx == -1){
+				JOptionPane.showMessageDialog(null,"Produto não encontrado!");
+			}
+			else{
+				odao.inserir(listaProdutos.get(idx));
+				configuraTabela();
+			}
+			txtIdProduto.setText("");
 		}
 	}
 

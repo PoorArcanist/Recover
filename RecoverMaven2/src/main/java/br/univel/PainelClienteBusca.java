@@ -42,8 +42,13 @@ public class PainelClienteBusca extends PainelClienteBuscaBase{
 		}
 	}
 
-	public void setAcaoFechar(KeyListener key) {
-		super.table.addKeyListener(key);
+	public void setAcaoFecharKey(KeyListener key) {
+		super.table.addKeyListener(key);	
+	}
+
+
+	public void setAcaoFecharMouse(MouseAdapter mouse) {
+		super.table.addMouseListener(mouse);
 		
 	}
 

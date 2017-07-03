@@ -6,6 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -150,7 +153,7 @@ public class TelaPrincipal extends TelaPrincipalBase{
 				if(e.getKeyCode() == KeyEvent.VK_F2){
 					setGlassPane(pc);
 					getGlassPane().setVisible(true);
-					pc.setAcaoFechar(new KeyListener() {
+					pc.setAcaoFecharKey(new KeyListener() {
 						
 						@Override
 						public void keyTyped(KeyEvent e) {
@@ -172,6 +175,15 @@ public class TelaPrincipal extends TelaPrincipalBase{
 							}
 						}
 					});
+					pc.setAcaoFecharMouse(new MouseAdapter() {
+						public void mouseClicked(MouseEvent e) {
+							if(e.getClickCount() == 2){
+								getGlassPane().setVisible(false);
+								
+							}
+							
+						}
+					});
 				}
 				if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
 					getGlassPane().setVisible(false);
@@ -179,6 +191,7 @@ public class TelaPrincipal extends TelaPrincipalBase{
 				}
 			}
 		});
+		
 		po.setAcaoProduto(new KeyListener() {
 			
 			@Override
@@ -194,8 +207,7 @@ public class TelaPrincipal extends TelaPrincipalBase{
 				if(e.getKeyCode() == KeyEvent.VK_F2){
 					setGlassPane(pp);
 					getGlassPane().setVisible(true);
-					pp.setAcaoFechar(new KeyListener() {
-						
+					pp.setAcaoFecharKey(new KeyListener() {
 						@Override
 						public void keyTyped(KeyEvent e) {
 							// TODO Auto-generated method stub
@@ -214,6 +226,20 @@ public class TelaPrincipal extends TelaPrincipalBase{
 								getGlassPane().setVisible(false);
 								System.out.println("deu certo");
 							}
+						}
+					});
+					pp.setAcaoFecharMouse(new MouseAdapter() {
+						
+						public void mouseClicked(MouseEvent e) {
+							if(e.getClickCount()==2){
+								getGlassPane().setVisible(false);
+								int idx = pp.table.getSelectedRow();
+								ProdutoDAO p = new ProdutoDAO();
+								int id = p.getTodos().get(idx).getId();
+								po.txtIdProduto.setText(String.valueOf(id));
+								po.adicionarProduto();
+							}
+							
 						}
 					});
 				}
