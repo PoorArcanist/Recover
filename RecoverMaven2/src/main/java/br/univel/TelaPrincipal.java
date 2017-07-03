@@ -43,6 +43,8 @@ public class TelaPrincipal extends TelaPrincipalBase{
 	
 	public TelaPrincipal() {
 		super.setVisible(true);
+		JOptionPane.showMessageDialog(null, "Professor, coloquei a opção de baixar a lista Master10"
+				+ " no MenuBar, assim como criar as tabelas necessárias no banco.");
 		configuraMenu();
 		configuraBotoes();
 		//	    ChangeListener changeListener = new ChangeListener() {

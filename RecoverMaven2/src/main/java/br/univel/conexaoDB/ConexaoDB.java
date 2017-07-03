@@ -13,7 +13,7 @@ public class ConexaoDB {
 	private ConexaoDB() {
 		try {
 			Class.forName("org.postgresql.Driver");
-			con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Recover", "postgres", "123");
+			con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/Recover", "postgres", "univel");
 			Runtime.getRuntime()
 			.addShutdownHook(new Thread(new Runnable() {
 				@Override
