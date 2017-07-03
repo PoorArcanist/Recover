@@ -117,9 +117,8 @@ public class PainelOrcamento extends PainelOrcamentoBase{
 		txtIdCliente.addKeyListener(key);
 	}
 
-	public void setAcaoProduto(ActionListener actionListener) {
-		
-		
+	public void setAcaoProduto(KeyListener key) {
+		txtIdProduto.addKeyListener(key);
 	}
 
 }

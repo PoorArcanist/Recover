@@ -112,59 +112,8 @@ public class TelaPrincipal extends TelaPrincipalBase{
 		super.btnOrcamento.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PainelOrcamento po = new PainelOrcamento(tabbedPane);
-				tabbedPane.addTab("Orcamento",po);
-				po.setAcaoCliente(new KeyListener() {
-					
-					@Override
-					public void keyTyped(KeyEvent e) {
-					}
-					@Override
-					public void keyReleased(KeyEvent e) {	
-					}
-					@Override
-					public void keyPressed(KeyEvent e) {
+				configuraKeys();
 
-						PainelClienteBusca pc = new PainelClienteBusca();
-						if(e.getKeyCode() == KeyEvent.VK_F2){
-							setGlassPane(pc);
-							getGlassPane().setVisible(true);
-							pc.setAcaoFechar(new KeyListener() {
-								
-								@Override
-								public void keyTyped(KeyEvent e) {
-									// TODO Auto-generated method stub
-									
-								}
-								
-								@Override
-								public void keyReleased(KeyEvent e) {
-									// TODO Auto-generated method stub
-									
-								}
-								
-								@Override
-								public void keyPressed(KeyEvent e) {
-									if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
-										getGlassPane().setVisible(false);
-										System.out.println("deu certo");
-									}
-								}
-							});
-						}
-						if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
-							getGlassPane().setVisible(false);
-							System.out.println("foi esse");
-						}
-					}
-				});
-				po.setAcaoProduto(new ActionListener() {
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						//setGlassPane(new PainelProdutoBusca());
-					}
-				});
-				
 			}
 		});
 		
@@ -179,6 +128,99 @@ public class TelaPrincipal extends TelaPrincipalBase{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				tabbedPane.addTab("Produto", new PainelProduto(tabbedPane));
+			}
+		});
+	}
+
+	protected void configuraKeys() {
+		PainelOrcamento po = new PainelOrcamento(tabbedPane);
+		tabbedPane.addTab("Orcamento",po);
+		po.setAcaoCliente(new KeyListener() {
+			
+			@Override
+			public void keyTyped(KeyEvent e) {
+			}
+			@Override
+			public void keyReleased(KeyEvent e) {	
+			}
+			@Override
+			public void keyPressed(KeyEvent e) {
+
+				PainelClienteBusca pc = new PainelClienteBusca();
+				if(e.getKeyCode() == KeyEvent.VK_F2){
+					setGlassPane(pc);
+					getGlassPane().setVisible(true);
+					pc.setAcaoFechar(new KeyListener() {
+						
+						@Override
+						public void keyTyped(KeyEvent e) {
+							// TODO Auto-generated method stub
+							
+						}
+						
+						@Override
+						public void keyReleased(KeyEvent e) {
+							// TODO Auto-generated method stub
+							
+						}
+						
+						@Override
+						public void keyPressed(KeyEvent e) {
+							if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+								getGlassPane().setVisible(false);
+								System.out.println("deu certo");
+							}
+						}
+					});
+				}
+				if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+					getGlassPane().setVisible(false);
+					System.out.println("foi esse");
+				}
+			}
+		});
+		po.setAcaoProduto(new KeyListener() {
+			
+			@Override
+			public void keyTyped(KeyEvent e) {
+			}
+			@Override
+			public void keyReleased(KeyEvent e) {	
+			}
+			@Override
+			public void keyPressed(KeyEvent e) {
+
+				PainelProdutoBusca pp = new PainelProdutoBusca();
+				if(e.getKeyCode() == KeyEvent.VK_F2){
+					setGlassPane(pp);
+					getGlassPane().setVisible(true);
+					pp.setAcaoFechar(new KeyListener() {
+						
+						@Override
+						public void keyTyped(KeyEvent e) {
+							// TODO Auto-generated method stub
+							
+						}
+						
+						@Override
+						public void keyReleased(KeyEvent e) {
+							// TODO Auto-generated method stub
+							
+						}
+						
+						@Override
+						public void keyPressed(KeyEvent e) {
+							if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+								getGlassPane().setVisible(false);
+								System.out.println("deu certo");
+							}
+						}
+					});
+				}
+				if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+					getGlassPane().setVisible(false);
+					System.out.println("foi esse");
+				}
 			}
 		});
 	}

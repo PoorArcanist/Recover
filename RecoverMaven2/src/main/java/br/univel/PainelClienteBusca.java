@@ -15,12 +15,8 @@ public class PainelClienteBusca extends PainelClienteBuscaBase{
 	ModeloTabelaCliente model;
 	public PainelClienteBusca() {
 		configuraTabela();
-		configuraFechar();
 	}
 
-	private void configuraFechar() {
-		
-	}
 
 	private void configuraTabela() {
 		Connection con = ConexaoDB.getInstance().getConexao();
