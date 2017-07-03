@@ -33,27 +33,10 @@ public class PainelOrcamento extends PainelOrcamentoBase{
 		this.tabbedPane = tabbedPane;
 		configuraTabela();
 		configuraBotoes();
-		configuraF2();
-	}
-
-	private void configuraF2() {
-		super.txtIdCliente.addKeyListener(new KeyListener() {
-			@Override
-			public void keyTyped(KeyEvent e) {
-			}
-			
-			@Override
-			public void keyReleased(KeyEvent e) {
-			}
-			@Override
-			public void keyPressed(KeyEvent e) {
-				if(e.getKeyCode() == KeyEvent.VK_F2){
-					System.out.println("F2");
-				}
-			}
-		});
 		
 	}
+
+	
 
 	private void configuraBotoes() {
 		super.btnAdicionarProduto.addActionListener(new ActionListener() {
@@ -128,6 +111,15 @@ public class PainelOrcamento extends PainelOrcamentoBase{
 	private void configuraTabela() {
 		orcamento = odao.getTodos();
 		super.table.setModel(new ModeloTabelaOrcamento(orcamento));
+	}
+
+	public void setAcaoCliente(KeyListener key) {
+		txtIdCliente.addKeyListener(key);
+	}
+
+	public void setAcaoProduto(ActionListener actionListener) {
+		
+		
 	}
 
 }

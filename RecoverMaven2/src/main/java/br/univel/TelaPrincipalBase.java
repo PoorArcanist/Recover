@@ -30,7 +30,7 @@ public class TelaPrincipalBase extends JFrame {
 	protected JMenu mnPrograma;
 	protected JMenuItem mntmCriarTabelas;
 	protected JMenuItem mntmInserirLista;
-
+	
 	public TelaPrincipalBase() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 700, 450);
@@ -88,6 +88,7 @@ public class TelaPrincipalBase extends JFrame {
 		gbc_tabbedPane.gridy = 1;
 		contentPane.add(tabbedPane, gbc_tabbedPane);
 	}
+	
 
 	private static void addPopup(Component component, final JPopupMenu popup) {
 		component.addMouseListener(new MouseAdapter() {
@@ -106,4 +107,5 @@ public class TelaPrincipalBase extends JFrame {
 			}
 		});
 	}
+
 }

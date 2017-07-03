@@ -1,8 +1,11 @@
 package br.univel;
 
+import java.awt.Component;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -29,14 +32,14 @@ public class TelaPrincipal extends TelaPrincipalBase{
 		super.setVisible(true);
 		configuraMenu();
 		configuraBotoes();
-	    ChangeListener changeListener = new ChangeListener() {
-	        public void stateChanged(ChangeEvent changeEvent) {
-	          JTabbedPane sourceTabbedPane = (JTabbedPane) changeEvent.getSource();
-	          int index = sourceTabbedPane.getSelectedIndex();
-	          System.out.println("Tab changed to: " + sourceTabbedPane.getTitleAt(index));
-	        }
-	      };
-	      tabbedPane.addChangeListener(changeListener);
+		//	    ChangeListener changeListener = new ChangeListener() {
+//	        public void stateChanged(ChangeEvent changeEvent) {
+//	          JTabbedPane sourceTabbedPane = (JTabbedPane) changeEvent.getSource();
+//	          int index = sourceTabbedPane.getSelectedIndex();
+//	          System.out.println("Tab changed to: " + sourceTabbedPane.getTitleAt(index));
+//	        }
+//	      };
+//	      tabbedPane.addChangeListener(changeListener);
 
 		
 	}
@@ -109,7 +112,58 @@ public class TelaPrincipal extends TelaPrincipalBase{
 		super.btnOrcamento.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				tabbedPane.addTab("Orcamento",new PainelOrcamento(tabbedPane));
+				PainelOrcamento po = new PainelOrcamento(tabbedPane);
+				tabbedPane.addTab("Orcamento",po);
+				po.setAcaoCliente(new KeyListener() {
+					
+					@Override
+					public void keyTyped(KeyEvent e) {
+					}
+					@Override
+					public void keyReleased(KeyEvent e) {	
+					}
+					@Override
+					public void keyPressed(KeyEvent e) {
+
+						PainelClienteBusca pc = new PainelClienteBusca();
+						if(e.getKeyCode() == KeyEvent.VK_F2){
+							setGlassPane(pc);
+							getGlassPane().setVisible(true);
+							pc.setAcaoFechar(new KeyListener() {
+								
+								@Override
+								public void keyTyped(KeyEvent e) {
+									// TODO Auto-generated method stub
+									
+								}
+								
+								@Override
+								public void keyReleased(KeyEvent e) {
+									// TODO Auto-generated method stub
+									
+								}
+								
+								@Override
+								public void keyPressed(KeyEvent e) {
+									if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+										getGlassPane().setVisible(false);
+										System.out.println("deu certo");
+									}
+								}
+							});
+						}
+						if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+							getGlassPane().setVisible(false);
+							System.out.println("foi esse");
+						}
+					}
+				});
+				po.setAcaoProduto(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						//setGlassPane(new PainelProdutoBusca());
+					}
+				});
 				
 			}
 		});
