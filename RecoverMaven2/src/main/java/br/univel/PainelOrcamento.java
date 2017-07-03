@@ -27,7 +27,7 @@ public class PainelOrcamento extends PainelOrcamentoBase{
 	OrcamentoDAO odao = new OrcamentoDAO();
 	JTabbedPane tabbedPane;
 	List<Produto> orcamento;
-	private static final String JASPER_REPORT = "C:\\Users\\rtietjen2\\JaspersoftWorkspace\\MyReports\\RecoverReport.jasper";
+	private static final String JASPER_REPORT = "C:\\Users\\seven\\JaspersoftWorkspace\\MyReports\\RecoverReport.jasper";
 	public PainelOrcamento(JTabbedPane tabbedPane) {
 		super();
 		this.tabbedPane = tabbedPane;
@@ -48,7 +48,7 @@ public class PainelOrcamento extends PainelOrcamentoBase{
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if(e.getKeyCode() == KeyEvent.VK_F2){
-					System.out.println("foda-se");
+					System.out.println("F2");
 				}
 			}
 		});
@@ -70,7 +70,7 @@ public class PainelOrcamento extends PainelOrcamentoBase{
 				removerAba();
 			}
 		});
-		btnImprimir.addActionListener(new ActionListener() {
+		super.btnImprimir.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				imprimir();
@@ -83,6 +83,8 @@ public class PainelOrcamento extends PainelOrcamentoBase{
 		JasperPrint jasperPrintPDF = getPrint();
 		Locale locale = Locale.getDefault();
 		JasperViewer.viewReport(jasperPrintPDF,false,locale);
+		
+		
 		
 	}
 

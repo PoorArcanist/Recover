@@ -47,8 +47,6 @@ public class OrcamentoDAO {
 			ps = con.prepareStatement(inserir.toString());
 			ps.executeQuery();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 	}
 
