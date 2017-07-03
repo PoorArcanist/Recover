@@ -17,7 +17,7 @@ public class PainelOrcamentoBase extends JPanel {
 	public JTextField txtIdProduto;
 	protected JLabel lblIdCliente;
 	protected JLabel lblCliente;
-	protected JLabel lblNomeCliente;
+	public JLabel lblNomeCliente;
 	protected JLabel lblProduto;
 	protected JLabel lblIdProduto;
 	protected JButton btnAdicionarProduto;

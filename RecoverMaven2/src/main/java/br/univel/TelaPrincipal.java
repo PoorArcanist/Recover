@@ -25,6 +25,7 @@ import org.postgresql.Driver;
 
 import br.univel.base.TelaPrincipalBase;
 import br.univel.conexaoDB.ConexaoDB;
+import br.univel.dao.ContatoDAO;
 import br.univel.dao.ProdutoDAO;
 import br.univel.painel.PainelCliente;
 import br.univel.painel.PainelClienteBusca;
@@ -147,6 +148,7 @@ public class TelaPrincipal extends TelaPrincipalBase{
 	protected void configuraKeys() {
 		PainelOrcamento po = new PainelOrcamento(tabbedPane);
 		tabbedPane.addTab("Orcamento",po);
+		//Cliente
 		po.setAcaoCliente(new KeyListener() {
 			
 			@Override
@@ -163,19 +165,12 @@ public class TelaPrincipal extends TelaPrincipalBase{
 					setGlassPane(pc);
 					getGlassPane().setVisible(true);
 					pc.setAcaoFecharKey(new KeyListener() {
-						
 						@Override
 						public void keyTyped(KeyEvent e) {
-							// TODO Auto-generated method stub
-							
 						}
-						
 						@Override
 						public void keyReleased(KeyEvent e) {
-							// TODO Auto-generated method stub
-							
 						}
-						
 						@Override
 						public void keyPressed(KeyEvent e) {
 							if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
@@ -188,9 +183,11 @@ public class TelaPrincipal extends TelaPrincipalBase{
 						public void mouseClicked(MouseEvent e) {
 							if(e.getClickCount() == 2){
 								getGlassPane().setVisible(false);
-								
+								int idx = pc.table.getSelectedRow();
+								ContatoDAO cdao = new ContatoDAO();
+								po.lblNomeCliente.setText(cdao.getTodos().get(idx).getNome() + ""
+										+ "     Telefone: " + cdao.getTodos().get(idx).getTelefone());
 							}
-							
 						}
 					});
 				}
@@ -200,9 +197,8 @@ public class TelaPrincipal extends TelaPrincipalBase{
 				}
 			}
 		});
-		
+		//Produto
 		po.setAcaoProduto(new KeyListener() {
-			
 			@Override
 			public void keyTyped(KeyEvent e) {
 			}
@@ -219,16 +215,10 @@ public class TelaPrincipal extends TelaPrincipalBase{
 					pp.setAcaoFecharKey(new KeyListener() {
 						@Override
 						public void keyTyped(KeyEvent e) {
-							// TODO Auto-generated method stub
-							
 						}
-						
 						@Override
 						public void keyReleased(KeyEvent e) {
-							// TODO Auto-generated method stub
-							
 						}
-						
 						@Override
 						public void keyPressed(KeyEvent e) {
 							if(e.getKeyCode() == KeyEvent.VK_ESCAPE){

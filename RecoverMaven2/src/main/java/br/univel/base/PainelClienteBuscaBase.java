@@ -7,7 +7,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
 public class PainelClienteBuscaBase extends JPanel {
-	protected JTable table;
+	public JTable table;
 
 	public PainelClienteBuscaBase() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
